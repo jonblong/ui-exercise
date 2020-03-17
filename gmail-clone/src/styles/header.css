@@ -1,0 +1,7 @@
+.header {
+  height: 63px;
+  width: 100%;
+
+  z-index: 900;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+}

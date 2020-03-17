@@ -1,0 +1,32 @@
+.email {
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #faf9f4;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+
+
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.email-sender {
+  width: 300px;
+}
+
+.email-subject {
+  margin-right: 10px;
+}
+
+.email-excerpt {
+  max-height: 100%;
+  min-width: 0;
+  flex-basis: 0;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
