@@ -7,13 +7,14 @@
   background-color: #faf9f4;
   border-bottom: 1px solid rgba(200, 200, 200, 0.5);
 
-
   overflow: hidden;
   white-space: nowrap;
+  font-size: 14px;
 }
 
 .email-sender {
-  width: 300px;
+  width: 200px;
+  margin: 0 10px;
 }
 
 .email-subject {
@@ -23,10 +24,37 @@
 .email-excerpt {
   max-height: 100%;
   min-width: 0;
+
   flex-basis: 0;
   flex-grow: 1;
   flex-shrink: 1;
   overflow: hidden;
+
+  color: #696969;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.email-date {
+  margin: 0 20px;
+}
+
+.star-wrapper {
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.star-wrapper:hover {
+  background-color: #3299bb;
+}
+
+.star-active {
+  fill: #ff9900;
+  
+}
+
+.star-inactive {
+  fill: #c1c1c1;
 }

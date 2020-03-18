@@ -5,12 +5,14 @@ import MailList from "./MailList";
 
 import "../styles/mail-viewer.css";
 
-const MailViewer = ({ emails }) => {
+const MailViewer = (props) => {
   return (
     <div className='mail-viewer'>
       <MailToolbar />
       <MailList 
-        emails={emails}
+        emails={props.emails}
+        updateStarredList={props.updateStarredList}
+        starredEmails={props.starredEmails}
       />
     </div>
   )

@@ -4,4 +4,61 @@
 
   z-index: 900;
   border-bottom: 1px solid rgba(200, 200, 200, 0.3);
+
+  display: flex;
+  align-items: center;
+}
+
+.logo-wrapper {
+  width: 256px;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger-wrapper {
+  width: 50px;
+  height: 50px;
+  margin-left: 13px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.hamburger-wrapper:hover {
+  background-color: rgba(200, 200, 200, 0.1);
+}
+
+.hamburger {
+  width: 30px;
+  height: 30px;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+}
+
+.gmail-logo {
+  margin-left: 5px;
+  height: 40px;
+}
+
+.search-bar {
+  width: 700px;
+  min-width: 300px;
+  height: 47px;
+  display: flex;
+  align-items: center;
+
+  background-color: rgba(200, 200, 200, 0.3);
+  border-radius: 8px;
+}
+
+.search-icon {
+  fill: #eeeeee;
+  margin: 0 10px;
+}
+
+.search-input {
+  height: 48px;
+  background-color: transparent;
+  border: none;
+  color: #eeeeee;
 }

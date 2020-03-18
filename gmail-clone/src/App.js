@@ -10,7 +10,18 @@ import emailData from "./data/emails";
 
 function App() {
   
-  const [emails, setEmails] = React.useState(emailData.messages);
+  const allEmails = emailData.messages;
+  const [starredEmails, setStarredEmails] = React.useState([]);
+
+  function updateStarredList(emailID) {
+    let newStarred = starredEmails;
+    if (newStarred.includes(emailID)) {
+      newStarred = newStarred.filter((id) => id !== emailID);
+    } else {
+      newStarred.push(emailID);
+    }
+    setStarredEmails(newStarred);
+  }
 
   return (
     <div className="App">
@@ -24,7 +35,9 @@ function App() {
         <div className='main-wrapper'>
           <Sidebar />
           <MailViewer 
-            emails={emails}
+            emails={allEmails}
+            updateStarredList={updateStarredList}
+            starredEmails={starredEmails}
           />
           <Dock />
         </div>

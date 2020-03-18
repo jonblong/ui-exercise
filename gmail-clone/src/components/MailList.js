@@ -4,12 +4,15 @@ import EmailListItem from "./EmailListItem";
 
 import "../styles/mail-viewer.css";
 
-const MailList = ({ emails }) => {
+const MailList = (props) => {
   return (
     <div className='mail-list'>
-      {emails.map((e, i) => (
+      {props.emails.map((e, i) => (
         <EmailListItem
           email={e}
+          key={i}
+          updateStarredList={props.updateStarredList}
+          starred={props.starredEmails.includes(e.id)}
         />
       ))}
     </div>
