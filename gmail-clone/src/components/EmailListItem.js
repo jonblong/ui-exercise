@@ -21,6 +21,12 @@ const EmailListItem = (props) => {
         props.goToEmail(props.email)
       }
     });
+
+    document.getElementById(`email-mobile-${props.email.id}`).addEventListener('click', function(event) {
+      if (this === event.target) {
+        props.goToEmail(props.email)
+      }
+    });
   }, []);
 
   // update state when props change
@@ -52,38 +58,69 @@ const EmailListItem = (props) => {
 
   return (
     // dynamically assign id for event listener, set style based on read/unread
-    <div 
-      id={`email-${props.email.id}`}
-      className={props.read ? 'email read' : 'email unread'} 
-    >
-      {/* Checkbox icon, clicking toggles email selection */}
+    <>
       <div 
-        className='icon-wrapper' id={`checkbox-${props.email.id}`}
-        onClick={() => toggleSelected()}
+        id={`email-${props.email.id}`}
+        className={`email email-desktop ${props.read ? 'read' : 'unread'}`} 
       >
-        <div className={`checkbox ${selected ? 'checked' : 'unchecked'}`}></div>
+        {/* Checkbox icon, clicking toggles email selection */}
+        <div 
+          className='icon-wrapper' id={`checkbox-${props.email.id}`}
+          onClick={() => toggleSelected()}
+        >
+          <div className={`checkbox ${selected ? 'checked' : 'unchecked'}`}></div>
+        </div>
+
+        {/* Star icon, clicking adds email to Starred list */}
+        <div
+          className='icon-wrapper' id={`star-${props.email.id}`}
+          onClick={() => toggleStarred()}
+        >
+          <Star
+                // make sure the star is yellow if the email is starred
+                className={starred ? 'star star-active' : 'star star-inactive'}
+                width="15px" height="15px"
+          />
+        </div>
+
+        {/* Displays sender, subject, an excerpt of the email body and the date */}
+        <div className='email-text' onClick={() => props.goToEmail(props.email)}>
+          <div className={`email-sender ${!read ? 'bold' : ''}`}>{props.email.sender}</div>
+          <div className={`email-subject ${!read ? 'bold' : ''}`}>{props.email.subject}</div>
+          <div className='email-excerpt'>- {props.email.body}</div>
+          <div 
+            id={`date-${props.email.id}`}
+            className={`email-date ${!read ? 'bold' : ''}`}
+          >{formatDate(props.email.date)}</div>
+        </div>
       </div>
 
-      {/* Star icon, clicking adds email to Starred list */}
-      <div
-        className='icon-wrapper' id={`star-${props.email.id}`}
-        onClick={() => toggleStarred()}
+      <div 
+        id={`email-mobile-${props.email.id}`}
+        className={`email email-mobile ${props.read ? 'read' : 'unread'}`} 
       >
-        <Star
-              // make sure the star is yellow if the email is starred
-              className={starred ? 'star star-active' : 'star star-inactive'}
-              width="15px" height="15px"
-        />
-      </div>
+        <div 
+          className='icon-wrapper' id={`checkbox-${props.email.id}`}
+          onClick={() => toggleSelected()}
+        >
+          <div className={`checkbox ${selected ? 'checked' : 'unchecked'}`}></div>
+        </div>
 
-      {/* Displays sender, subject, an excerpt of the email body and the date */}
-      <div className='email-text' onClick={() => props.goToEmail(props.email)}>
-        <div className={`email-sender ${!read ? 'bold' : ''}`}>{props.email.sender}</div>
-        <div className={`email-subject ${!read ? 'bold' : ''}`}>{props.email.subject}</div>
-        <div className='email-excerpt'>- {props.email.body}</div>
-        <div className={`email-date ${!read ? 'bold' : ''}`}>{formatDate(props.email.date)}</div>
+        <div className='email-details-mobile' onClick={() => props.goToEmail(props.email)}>
+          {/* Holds sender name and date */}
+          <div className='mobile-sender-container'>
+            <div className={`email-sender ${!read ? 'bold' : ''}`}>{props.email.sender}</div>
+            <div className={`email-date ${!read ? 'bold' : ''}`}>{formatDate(props.email.date)}</div>
+          </div>
+          
+          {/* Holds subject, body snippet and star */}
+          <div className='mobile-email-snippet'>
+            <div className={`email-subject ${!read ? 'bold' : ''}`}>{props.email.subject}</div>
+            <div className='email-excerpt'>{props.email.body}</div>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

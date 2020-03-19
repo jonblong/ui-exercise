@@ -19,6 +19,12 @@
   background-color: rgba(250, 249, 244, 0.5);
 }
 
+.mail-list-container {
+  overflow-y: scroll;
+  flex-grow: 1;
+  background-color: rgba(250, 249, 244, 0.5);
+}
+
 .category-container {
   display: flex;
   background-color: #faf9f4;
@@ -61,6 +67,7 @@
   height: 48px;
   width: 100%;
   display: flex;
+  flex-shrink: 0;
   align-items: center;
 }
 
@@ -103,6 +110,7 @@
 .single-email-view {
   flex-grow: 1;
   background-color: rgba(250, 249, 244, 0.5);
+  overflow-y: scroll;
 }
 
 .email-container {
@@ -167,4 +175,19 @@
   color: #a1a1a1;
   border: 1px solid #d6d6d6;
   border-radius: 5px;
+}
+
+@media only screen and (max-width: 960px) {
+  .email-container {
+    padding: 20px 30px;
+    background-color: #faf9f4;
+  }
+
+  .date-and-actions .icon-wrapper {
+    display: none;
+  }
+
+  .email-details {
+    display: inline;
+  }
 }

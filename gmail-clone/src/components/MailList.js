@@ -8,7 +8,7 @@ import "../styles/mail-viewer.css";
 and below it is a list of emails filtered according to the current tag. */
 const MailList = (props) => {
   return (
-    <>
+    <div className='mail-list-container'>
       {/* Holds all of the category (tag) buttons */}
       {/* TODO: make less ugly... */}
       <div className='category-container'>
@@ -52,7 +52,11 @@ const MailList = (props) => {
           ))
         }
       </div>
-    </>
+
+      {/* Certain mobile browsers have weird behavior with the bottom toolbar.
+      This makes sure that all of the content is visible. */}
+      <div className='mobile-spacer'></div>
+    </div>
   )
 }
 

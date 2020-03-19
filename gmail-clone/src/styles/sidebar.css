@@ -1,6 +1,43 @@
+/*
+  Styles for the Sidebar component
+*/
 .sidebar {
   height: 100%;
   width: 256px;
 
   flex-shrink: 0;
+}
+
+.compose-button {
+  width: 135px;
+  height: 50px;
+  margin: 20px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #faf9f4;
+  border-radius: 30px;
+  color: #424242;
+  font-weight: 600;
+}
+
+.filter-button {
+  width: 200px;
+  height: 30px;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #faf9f4;
+  border-radius: 0 30px 30px 0;
+  cursor: pointer;
+}
+
+.filter-button:hover {
+  background-color: rgba(200, 200, 200, 0.2)
+}
+
+.filter-active {
+  background-color: rgba(200, 200, 200, 0.4) !important;
 }

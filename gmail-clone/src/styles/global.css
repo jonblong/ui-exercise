@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700&display=swap');
 
+/*
+  Global Styles
+*/
 * {
   margin: 0;
   padding: 0;
@@ -62,4 +65,18 @@
 
 .star-inactive {
   fill: #e1e1e1;
+}
+
+@media only screen and (max-width: 960px) {
+  .header, .sidebar, .dock, .category-container, .email-desktop {
+    display: none;
+  }
+
+  .mobile-spacer {
+    height: 100px;
+  }
+
+  .icon-wrapper:hover {
+    background-color: none;
+  }
 }

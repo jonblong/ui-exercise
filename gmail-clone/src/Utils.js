@@ -16,6 +16,7 @@ export const formatDate = (date) => {
     // if the date is today, show time
     if ((emailMonth === currentMonth) && (emailDay == CurrentDay)) {
       return `${hour}:${minute}`;
+      console.log("returned the time");
     }
     // if the date was this year, show full month and day
     return `${emailMonth}/${emailDay}`;

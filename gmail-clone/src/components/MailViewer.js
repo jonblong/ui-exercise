@@ -9,8 +9,19 @@ import "../styles/mail-viewer.css";
 /* MailViewer contains the main body of the app. It includes the toolbar and the
 a container for the inbox. If an email is selected, the inbox container is
 replaced with a single email view. */
+/* TODO: implement pagination, probably out of scope of this project */
+/* TODO: clean up props */
 const MailViewer = (props) => {
+  // rerender when new emails are selected
   React.useEffect(() => {}, [props.selectedEmails.length])
+
+  // determine which emails to display based on current filter
+  // TODO: scale to larger list of filters
+  let toDisplay = [...props.emails];
+  if (props.activeFilter == "starred") {
+    toDisplay = toDisplay.filter((e) => props.starredEmails.includes(e.id));
+  }
+
   return (
     <div className='mail-viewer'>
       {/* display toolbar */}
@@ -31,7 +42,7 @@ const MailViewer = (props) => {
       {/* if no email is selected, show inbox */}
       {props.activeEmail == null && (
         <MailList 
-          emails             = {props.emails}
+          emails             = {toDisplay}
           activeTag          = {props.activeTag}
           setTag             = {props.setTag}
           updateStarredList  = {props.updateStarredList}

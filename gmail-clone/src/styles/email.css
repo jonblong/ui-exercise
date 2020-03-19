@@ -1,3 +1,7 @@
+/*
+  Styles for the EmailListItem component
+*/
+
 .email {
   height: 50px;
 
@@ -11,6 +15,10 @@
   overflow: hidden;
   white-space: nowrap;
   font-size: 14px;
+}
+
+.email-mobile {
+  display: none;
 }
 
 .icon-wrapper {
@@ -82,4 +90,37 @@
 
 .bold {
   font-weight: bold;
+}
+
+@media only screen and (max-width: 960px) {
+  .email-mobile {
+    display: flex;
+    height: 100px;
+  }
+  
+  .email-details-mobile {
+    width: 100%;
+    margin-right: 10px;
+  }
+
+  .email-sender {
+    width: auto;
+    font-size: 12px;
+  }
+
+  .email-date {
+    width: auto;
+    font-size: 12px;
+  }
+
+
+  .mobile-sender-container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .mobile-email-snippet {
+    width: 90%;
+    margin-left: 10px;
+  }
 }

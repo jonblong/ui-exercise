@@ -88,6 +88,10 @@ const SingleEmailView = (props) => {
           </div>
         </div>
       </div>
+      
+      {/* Certain mobile browsers have weird behavior with the bottom toolbar.
+      This makes sure that all of the content is visible. */}
+      <div className='mobile-spacer'></div>
     </div>
   )
 }
