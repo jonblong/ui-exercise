@@ -38,6 +38,7 @@
 .gmail-logo {
   margin-left: 5px;
   height: 40px;
+  cursor: pointer;
 }
 
 .search-bar {

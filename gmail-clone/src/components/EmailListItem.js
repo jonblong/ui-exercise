@@ -1,36 +1,34 @@
 import React from 'react';
 import {ReactComponent as Star} from "../icons/star.svg";
+import {formatDate} from "../Utils";
 import "../styles/email.css";
 
+/* The inbox is dynamically populated by EmailListItems. They track whether they
+are read/unread, starred or selected, */
 const EmailListItem = (props) => {
 
-  const [starred, setStarred] = React.useState(props.starred);
+  // set initial state
+  const [starred, setStarred]   = React.useState(props.starred);
+  const [selected, setSelected] = React.useState(props.selected);
+  const [read, setRead]         = React.useState(props.read);
 
-  // Convert date from ISO string and format based on email age
-  function formatDate(date) {
-    let emailSplitDate = date.split(/\D+/); // datestring into numbers
-    let currentSplitDate = new Date().toISOString().split(/\D+/);
-
-    let emailYear   = emailSplitDate[0];
-    let emailMonth  = emailSplitDate[1];
-    let emailDay    = emailSplitDate[2];
-    let currentYear  = currentSplitDate[0];
-    let currentMonth = currentSplitDate[1];
-    let CurrentDay   = currentSplitDate[2];
-    let hour   = emailSplitDate[3];
-    let minute = emailSplitDate[4];
-
-    if (emailYear === currentYear) {
-      // if the date is today, show time
-      if ((emailMonth === currentMonth) && (emailDay == CurrentDay)) {
-        return `${hour}:${minute}`;
+  // add click listeners on mount
+  /* TODO: make click functionality cleaner. When a clickable node has clickable
+  children it becomes messy and stopPropagation slows the app down. */
+  React.useEffect(() => {
+    document.getElementById(`email-${props.email.id}`).addEventListener('click', function(event) {
+      if (this === event.target) {
+        props.goToEmail(props.email)
       }
-      // if the date was this year, show full month and day
-      return `${emailMonth}/${emailDay}`;
-    }
-    // if the date was before this year, show MM/DD/YY
-    return `${emailMonth}/${emailDay}/${emailYear}`;
-  }
+    });
+  }, []);
+
+  // update state when props change
+  React.useEffect(() => {
+    setSelected(props.selected);
+    setStarred(props.starred);
+    setRead(props.read);
+  }, [props])
 
   // toggle starred and add/remove from parent StarredEmails array
   function toggleStarred() {
@@ -42,20 +40,49 @@ const EmailListItem = (props) => {
     props.updateStarredList(props.email.id);
   }
 
+  // toggle selected and add/remove from parent SelectedEmails array
+  function toggleSelected() {
+    if (selected) {
+      setSelected(false);
+    } else {
+      setSelected(true);
+    }
+    props.updateSelectedList(props.email.id);
+  }
+
   return (
-    <div className='email'>
+    // dynamically assign id for event listener, set style based on read/unread
+    <div 
+      id={`email-${props.email.id}`}
+      className={props.read ? 'email read' : 'email unread'} 
+    >
+      {/* Checkbox icon, clicking toggles email selection */}
+      <div 
+        className='icon-wrapper' id={`checkbox-${props.email.id}`}
+        onClick={() => toggleSelected()}
+      >
+        <div className={`checkbox ${selected ? 'checked' : 'unchecked'}`}></div>
+      </div>
+
       {/* Star icon, clicking adds email to Starred list */}
-      <div className='star-wrapper'  onClick={() => toggleStarred()}>
+      <div
+        className='icon-wrapper' id={`star-${props.email.id}`}
+        onClick={() => toggleStarred()}
+      >
         <Star
               // make sure the star is yellow if the email is starred
-              className={starred ? 'star star-active' : 'star star-inactive'} 
+              className={starred ? 'star star-active' : 'star star-inactive'}
               width="15px" height="15px"
         />
       </div>
-      <div className='email-sender'>{props.email.sender}</div>
-      <div className='email-subject'>{props.email.subject}</div>
-      <div className='email-excerpt'>- {props.email.body}</div>
-      <div className='email-date'>{formatDate(props.email.date)}</div>
+
+      {/* Displays sender, subject, an excerpt of the email body and the date */}
+      <div className='email-text' onClick={() => props.goToEmail(props.email)}>
+        <div className={`email-sender ${!read ? 'bold' : ''}`}>{props.email.sender}</div>
+        <div className={`email-subject ${!read ? 'bold' : ''}`}>{props.email.subject}</div>
+        <div className='email-excerpt'>- {props.email.body}</div>
+        <div className={`email-date ${!read ? 'bold' : ''}`}>{formatDate(props.email.date)}</div>
+      </div>
     </div>
   )
 }

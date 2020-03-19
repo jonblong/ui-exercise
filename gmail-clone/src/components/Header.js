@@ -3,7 +3,9 @@ import {ReactComponent as Hamburger} from "../icons/hamburger.svg";
 import {ReactComponent as Search} from "../icons/search.svg";
 import "../styles/header.css";
 
-const Header = () => {
+/* Header is (surprise) the app's header. It serves a variety of purposes in the
+actual Gmail app but its uses are limited in this exercise.*/
+const Header = (props) => {
   return (
     <div className='header'>
       {/* Holds the hamburger menu and Gmail logo */}
@@ -12,10 +14,11 @@ const Header = () => {
           <Hamburger className='hamburger' />
         </div>
 
-        <img className='gmail-logo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x.png"></img>
+        <img onClick={() => props.return()}className='gmail-logo' src="https://ssl.gstatic.com/ui/v1/icons/mail/rfr/logo_gmail_lockup_dark_1x.png"></img>
       </div>
 
       {/* Holds the search bar, grows to fill */}
+      {/* TODO: all of the search functionality, probably a stretch goal */}
       <div className='search-wrapper'>
         <div className='search-bar'>
           <Search className='search-icon' width="20px" height="20px" />

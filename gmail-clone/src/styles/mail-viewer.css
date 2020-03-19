@@ -1,15 +1,170 @@
+/*
+  Contains styles for the following components:
+  MailViewer
+  MailToolbar
+  MailList
+  SingleEmailView
+*/
 .mail-viewer {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
+/*
+  Mail List Styles
+*/
+.mail-list {
+  flex-grow: 1;
+  background-color: rgba(250, 249, 244, 0.5);
+}
+
+.category-container {
+  display: flex;
+  background-color: #faf9f4;
+}
+
+.category {
+  height: 60px;
+  width: 200px;
+  padding-left: 50px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.category:hover {
+  background-color: #d9d9d9;
+}
+
+.all-tag {
+  color: #d73122;
+  border-bottom: 2px solid #d73122;
+}
+
+.travel-tag {
+  color: #1374d8;
+  border-bottom: 2px solid #1374d8;
+}
+
+.work-tag {
+  color: #18813a;
+  border-bottom: 2px solid #18813a;
+}
+
+/*
+  Mail Toolbar Styles
+*/
 .mail-toolbar {
   height: 48px;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.mail-list {
+.active-toolbar {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.toolbar-icon-wrapper {
+  padding: 5px;
+  margin-right: 10px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.select-all {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #e1e1e1;
+  border-radius: 4px;
+}
+
+.selected {
+  background-color: #424242;
+}
+
+.toolbar-icon-wrapper:hover {
+  background-color: rgba(250, 249, 244, 0.3);
+}
+
+.toolbar-icon {
+  fill: #d1d1d1;
+}
+
+/*
+  Single Email View Styles
+*/
+.single-email-view {
   flex-grow: 1;
-  background-color: rgba(255,255,255, 0.8);
+  background-color: rgba(250, 249, 244, 0.5);
+}
+
+.email-container {
+  padding: 20px 70px;
+  background-color: #faf9f4;
+}
+
+.subject-full {
+  font-weight: 500;
+  font-size: 28px;
+}
+
+.email-details {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.sender-full {
+  font-size: 14px;
+}
+
+.to {
+  color: #a6a6a6;
+  font-size: 14px;
+}
+
+.date-and-actions {
+  display: flex;
+  align-items: center;
+}
+
+.icon-dark {
+  fill: #a1a1a1;
+}
+
+.icon {
+  margin: 0px 10px;
+}
+
+.date-full {
+  color: #a6a6a6;
+  margin-right: 10px;
+}
+
+#email-body p {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.button-container {
+  display: flex;
+  margin-top: 10px;
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin-right: 20px;
+  color: #a1a1a1;
+  border: 1px solid #d6d6d6;
+  border-radius: 5px;
 }

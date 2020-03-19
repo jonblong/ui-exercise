@@ -4,12 +4,53 @@
   display: flex;
   align-items: center;
 
-  background-color: #faf9f4;
-  border-bottom: 1px solid rgba(200, 200, 200, 0.5);
+  border-top: 1px solid rgba(200, 200, 200, 0.5);
+  box-sizing: border-box;
+  cursor: pointer;
 
   overflow: hidden;
   white-space: nowrap;
   font-size: 14px;
+}
+
+.icon-wrapper {
+  flex-shrink: 0;
+}
+
+.email-text {
+  display: flex;
+}
+
+.read {
+  background-color: rgba(200, 200, 200, 0.7);
+}
+
+.unread {
+  background-color: #faf9f4;
+}
+
+.checkbox {
+  width: 15px;
+  height: 15px;
+  border: 2px solid #e1e1e1;
+  border-radius: 4px;
+}
+
+.checked {
+  background-color: #424242;
+}
+
+.email:hover {
+  border-bottom: 2px solid #727272;
+  border-top: 1px solid #727272;
+}
+
+.email:hover .star-inactive {
+  fill: #c1c1c1;
+}
+
+.email:hover .checkbox {
+  border: 2px solid #c1c1c1;
 }
 
 .email-sender {
@@ -39,22 +80,6 @@
   margin: 0 20px;
 }
 
-.star-wrapper {
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-  border-radius: 100px;
-}
-
-.star-wrapper:hover {
-  background-color: #3299bb;
-}
-
-.star-active {
-  fill: #ff9900;
-  
-}
-
-.star-inactive {
-  fill: #c1c1c1;
+.bold {
+  font-weight: bold;
 }

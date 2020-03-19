@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,500,600,700&display=swap');
 
 * {
   margin: 0;
@@ -43,4 +43,23 @@
 
   filter: blur(12px);
   -webkit-filter: blur(12px);
+}
+
+.icon-wrapper {
+  padding: 5px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: 100px;
+}
+
+.icon-wrapper:hover {
+  background-color: #3299bb;
+}
+
+.star-active {
+  fill: #e3b23c;
+}
+
+.star-inactive {
+  fill: #e1e1e1;
 }
