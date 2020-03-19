@@ -1,29 +1,36 @@
 # SalesLoft UI Exercise
 
-## Instructions
+## About This Project
+This is a rough clone of the Gmail web client built with React (and a lot of coffee). It allows the user to view a list of emails provided in the `/gmail-clone/src/data/emails.json` file. The user may select one or more emails to delete or mark as read/unread. The user can also star emails, with the ability to filter their inbox and display just these emails. The emails can also be filtered by their tags.
 
-Create a responsive single page app that is based on Gmail's web interface. Make any improvements to the UX that you see fit. This is intended to show your knowledge of Javascript (vanilla JS or any framework of your choice) & CSS/Sass/Less,  while also showing your grasp of UI/UX best practices.
+There are a few elements (like the search bar and hamburger menu) that don't have functionality. The ability to compose or send emails is not present.
 
-Use the following guidelines when building the application:
+I've built a minimal mobile interface that doesn't allow the user to star emails or filter emails by tags.
 
-  * Uses color scheme similar to that of Gmail
-  * Displays a list of emails with name, title, date and tags based on provided emails.json file
-  * Allows for selection of one or more emails by the end user
-  * Allows users to perform a number of actions on one or more selected emails
-  * Shows a sidebar that displays a number of tags
-  * Table cells should be viewable at all resolutions above 320px
-  * Include at least one javascript test
+TODOS:  
+Expand mobile experience  
+Clean up CSS files by merging/deleting reduntant classes  
+Create cleaner/more scalable ways of sorting by tag and detecting clicks on emails  
+Polish the styling  
 
-Spend time on both the UI/UX and the actual functionality of the list view. This view should be as complete as possible without interacting with a backend data service, so look at stubbing out fake data. 
+## How to Run Locally
 
-Try to time box this exercise to take no longer than 4 hours. If you don't feel like you're able to finish within that timeframe, focus on making parts of the exercise great rather than submitting a project that's 80% complete across the board. This gives engineers an opportunity to explore what it's like to work with you while we're fleshing out the remaining work or expanding on it.
+### 1) Install App
+To run this app on locally, either clone the repo or unzip the provided folder. Then, navigate to the project's root folder:
 
-Also, please don't use this an an opportunity to learn a new framework - instead, use tools and technologies you are comfortable with so we can have an in-depth discussion about your decisions and approach. 
+`cd ui-exercise/gmail-clone`
 
-## Submission
 
-Please clone this repo and submit to daniel.andrews@salesloft.com. The submission should include:
+### 2) Install Dependencies
+Ensure you have installed the proper dependencies:
 
-  * All source files in a zip file
-  * A link to a running version of the application
-  * A README file with instructions on how to run the project locally
+`npm install`
+
+
+### 3) Start App on Local Server
+To start the app on a local server, use the `run` command:
+
+`npm run`
+
+### 4) Navigate to App
+The app will now be running on `localhost:3000`
