@@ -25,4 +25,4 @@ To start the app on a local server, use the `run` command:
 `npm run`
 
 ### 4) Navigate to App
-The app will now be running on 'localhost:3000'
+The app will now be running on `localhost:3000`
