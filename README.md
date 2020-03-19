@@ -7,11 +7,11 @@ There are a few elements (like the search bar and hamburger menu) that don't hav
 
 I've built a minimal mobile interface that doesn't allow the user to star emails or filter emails by tags.
 
-TODOS:
-Expand mobile experience
-Clean up CSS files by merging/deleting reduntant classes
-Create cleaner/more scalable ways of sorting by tag and detecting clicks on emails
-Polish the styling
+TODOS:  
+Expand mobile experience  
+Clean up CSS files by merging/deleting reduntant classes  
+Create cleaner/more scalable ways of sorting by tag and detecting clicks on emails  
+Polish the styling  
 
 ## How to Run Locally
 
