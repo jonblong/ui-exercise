@@ -44,6 +44,12 @@ const SingleEmailView = (props) => {
           <h1 className='subject-full'>{props.email.subject}</h1>
         </div>
 
+        <div className='tag-container'>
+          {props.email.tags.map((tag, key) =>
+            <div className='tag'><p>{tag}</p></div>
+          )}
+        </div>
+
         {/* displays sender, date and actions */}
         <div className='email-details'>
           {/* show sender and recipient */}
